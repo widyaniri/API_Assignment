@@ -56,7 +56,7 @@ def read_menu():
 @app.get("/master")
 def read_root():
 	return  {"Data of summary covid cases in Germany": json.loads(data_df.to_json(orient="columns")),
-          "Analisis": "Secaara umum Kota Nordhein-Westfalen merupakan kota dengan jumlah kasus covid tertinggi (baik itu kasus terkonfirmasi, kematian, maupun kesembuhan). Namun kota dengan nilai persentase kesembuhan tertinggi ada pada Kota Berlin, dan Kota dengan nilai persentase kasus kematian tertinggi ada pada Kota Bradenburg. Ini artinya kota dengan jumlah kasus tertinggi (kesembuhan/kematian) belum tentu memiliki nilai persentase (kesembuhan/kematian) yang tinggi juga."}
+          "Analisis": "Secara umum Kota Nordhein-Westfalen merupakan kota dengan jumlah kasus covid tertinggi (baik itu kasus terkonfirmasi, kematian, maupun kesembuhan). Namun kota dengan nilai persentase kesembuhan tertinggi ada pada Kota Berlin, dan Kota dengan nilai persentase kasus kematian tertinggi ada pada Kota Bradenburg. Ini artinya kota dengan jumlah kasus tertinggi (kesembuhan/kematian) belum tentu memiliki nilai persentase (kesembuhan/kematian) yang tinggi juga."}
 
 @app.get("/top_3_confirmed")
 def read_root():
