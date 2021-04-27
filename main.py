@@ -51,7 +51,7 @@ app =FastAPI()
 
 @app.get("/")
 def read_menu():
-	return{ "Greetings": "Welcome to Germany's Covid Report", "Menu ": "Link", "Master Table" : "http://127.0.0.1:8000/master", "Top 3 City Confirmed" : "http://127.0.0.1:8000/top_3_confirmed", "Top 3 City Deaths" : "http://127.0.0.1:8000/top_3_deaths", "Top 3 City Recovered" : "http://127.0.0.1:8000/top_3_recovered", "% Deaths" : "http://127.0.0.1:8000/percen_deaths", "Top 3 City Percentage of Deaths" : "http://127.0.0.1:8000/perc_deaths_top3",  "% Recovered" : "http://127.0.0.1:8000/percen_recovered", "Top 3 City Percentage of Recovered" : "http://127.0.0.1:8000/perc_recovered_top3" }
+	return{ "Greetings": "Welcome to Germany's Covid Report", "Menu ": "Link", "Master Table" : "http://127.0.0.1:8000/master", "Top 3 City Confirmed" : "http://127.0.0.1:8000/top_3_confirmed", "Top 3 City Deaths" : "http://127.0.0.1:8000/top_3_deaths", "Top 3 City Recovered" : "http://127.0.0.1:8000/top_3_recovered", "% Deaths" : "http://127.0.0.1:8000/percen_deaths", "List of deaths cases per city that more than average" : "http://127.0.0.1:8000/perc_deaths_city",  "% Recovered" : "http://127.0.0.1:8000/percen_recovered", "List of recovered cases per city that more than average" : "http://127.0.0.1:8000/perc_recovered_city" }
 
 @app.get("/master")
 def read_root():
@@ -73,14 +73,14 @@ def read_root():
 def read_root():
 	return {"Percent average of deaths cases (%)" : perc_deaths_mean}
 	
-@app.get("/perc_deaths_top3")
+@app.get("/perc_deaths_city")
 def read_root():
 	return {"List of deaths cases per city that more than average" :json.loads(city_deaths.to_json(orient="columns"))}
 	
 @app.get("/percen_recovered")
 def read_root():
-	return {"Percent average of recovered cases" : perc_recovered_mean}
+	return {"Percent average of recovered cases (%)" : perc_recovered_mean}
     
-@app.get("/perc_recovered_top3")
+@app.get("/perc_recovered_city")
 def read_root():
 	return {"List of recovered cases per city that more than average": json.loads(city_recovered.to_json(orient="columns")) }
