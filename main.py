@@ -55,32 +55,40 @@ def read_menu():
 
 @app.get("/master")
 def read_root():
-	return  {"Data of summary covid cases in Germany": json.loads(data_df.to_json(orient="columns"))}
+	return  {"Data of summary covid cases in Germany": json.loads(data_df.to_json(orient="columns")),
+          "Analisis": "Secaara umum Kota Nordhein-Westfalen merupakan kota dengan jumlah kasus covid tertinggi (baik itu kasus terkonfirmasi, kematian, maupun kesembuhan). Namun kota dengan nilai persentase kesembuhan tertinggi ada pada Kota Berlin, dan Kota dengan nilai persentase kasus kematian tertinggi ada pada Kota Bradenburg. Ini artinya kota dengan jumlah kasus tertinggi (kesembuhan/kematian) belum tentu memiliki nilai persentase (kesembuhan/kematian) yang tinggi juga."}
 
 @app.get("/top_3_confirmed")
 def read_root():
-	return  {"Top 3 city with higher confirmed cases": json.loads(top_3_confirmed.to_json(orient="columns"))}
+	return  {"Top 3 city with higher confirmed cases": json.loads(top_3_confirmed.to_json(orient="columns")),
+          "Analisis" : " 3 kota dengan kasus terkonfirmasi covid tertingi dipegang oleh Nordhein-Westfalen, Bayren, dan Baden-Wurttemburg dengan konfirmasi kasus tertinggi ada pada kota Nordhein-Westfalen dengn 15.287 ribu kasus terkonfirmasi covid"}
 	
 @app.get("/top_3_deaths")
 def read_root():
-	return  {"Top 3 city with higher deaths cases" : json.loads(top_3_deaths.to_json(orient="columns")) }
+	return  {"Top 3 city with higher deaths cases" : json.loads(top_3_deaths.to_json(orient="columns")),
+          "Analisis": "3 Kota dengan kasus kematian akita covid terbanyak juga dipegang oleh Nordhein-Westfalen, Bayren, dan Baden-Wurttemburg"}
 	
 @app.get("/top_3_recovered")
 def read_root():
-	return  {"Top 3 city with higher recovered rate" : json.loads(top_3_recovered.to_json(orient="columns"))}
+	return  {"Top 3 city with higher recovered rate" : json.loads(top_3_recovered.to_json(orient="columns")),
+          "Analisis" : "Sama seperti kasus terkonfirmasi covid dan kasus kematian akibat covid, 3 kota dengan jumlah penduduk yang sembuh dari covid dipegang oleh Nordhein-Westfalen, Bayren, dan Baden-Wurttemburg. Ini berarti pada ketiga kota tersebut jumlah kasus kematian akibat covid yang tinggi juga diimbangi dengan jumlah kesembuhan dari covid."}
 
 @app.get("/percen_deaths")
 def read_root():
-	return {"Percent average of deaths cases (%)" : perc_deaths_mean}
+	return {"Percent average of deaths cases (%)" : perc_deaths_mean, 
+         "Analisis": "Nilai tersebut merupakan nilai rata-rata persentase kasus kematian akibat covid dari seluruh kasus yg terjadi"}
 	
 @app.get("/perc_deaths_city")
 def read_root():
-	return {"List of deaths cases per city that more than average" :json.loads(city_deaths.to_json(orient="columns"))}
+	return {"List of deaths cases per city that more than average" :json.loads(city_deaths.to_json(orient="columns")),
+         "Analisis" : "7 dari 16 kota di Jerman memiliki persentase kematian akibat covid lebih dari rata-rata. Kota Brandenburg merupakan kota paling tinggi dengan nilai persentase kematian akibat covid sebanyak 3.5%"}
 	
 @app.get("/percen_recovered")
 def read_root():
-	return {"Percent average of recovered cases (%)" : perc_recovered_mean}
+	return {"Percent average of recovered cases (%)" : perc_recovered_mean,
+         "Analisis": "Nilai tersebut merupakan nilai rata-rata persentase kasus sembuh covid dari seluruh kasus yg terjadi"}
     
 @app.get("/perc_recovered_city")
 def read_root():
-	return {"List of recovered cases per city that more than average": json.loads(city_recovered.to_json(orient="columns")) }
+	return {"List of recovered cases per city that more than average": json.loads(city_recovered.to_json(orient="columns")),
+         "Analisis" : "Hanya ada 6 dari 16 kota di Jerman yang memiliki persetase kesembuhan covid diatas persentase ksembuhan covid rata-rata. Selain itu persentase kesembuhan tertinggi ada pada kota Berlin dengan nilai 92.12% "}
