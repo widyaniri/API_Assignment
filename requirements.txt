@@ -1,5 +1,5 @@
-requests
-json
-fastapi
-pandas
-uvicorn
+requests==2.25.1
+jsonschema==2.6.0
+fastapi==0.63.0
+pandas==1.1.5
+uvicorn==0.11.2
